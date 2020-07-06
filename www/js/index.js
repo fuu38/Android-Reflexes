@@ -21,7 +21,7 @@ window.addEventListener('touchstart', function() {
     $("#body").addClass("touching");
     document.getElementById("sentence").innerHTML = "画面が変わったら\n離して下さい";
     const delay = Math.random() * 10000;
-    setTimeout(leaveNow(), delay);
+    setTimeout(leaveNow, delay);
 })
 window.addEventListener('touchend', function() {
     const time = new Date();
