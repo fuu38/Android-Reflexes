@@ -1,4 +1,6 @@
-    /*
+#!/usr/bin/env node
+
+/*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -16,33 +18,20 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-    
-    .start {
-        background-color: yellowgreen;
-    }
-    
-    .touchStart {
-        background-color: aqua;
-    }
-    
-    .touching {
-        background-color: aquamarine;
-    }
-    
-    .touchEnd {
-        background-color: red;
-    }
-    
-    #sentence {
-        text-align: center;
-        font-size: 10vw;
-    }
-    
-    #toucharea {
-        border: solid 2px;
-        text-align: center;
-    }
-    
-    .result {
-        background-color: azure;
-    }
+
+var path = require('path');
+var check_reqs = require('./check_reqs');
+
+/**
+ * run
+ *   Creates a zip file int platform/build folder
+ */
+module.exports.run = function () {
+    return check_reqs.run();
+};
+
+module.exports.help = function () {
+    console.log('Usage: cordova build browser');
+    var wwwPath = path.resolve(path.join(__dirname, '../../www'));
+    console.log("Build will create the packaged app in '" + wwwPath + "'.");
+};
