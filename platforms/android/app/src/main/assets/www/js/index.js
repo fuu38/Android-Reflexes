@@ -31,9 +31,15 @@ document.getElementById("touchBox").addEventListener('touchend', function() {
     const time = new Date();
     const now = time.getTime();
     const result = now - window.standard;
-    document.getElementById("sentence").innerHTML = "結果は" + String(result) + "msです";
-    $("#body").removeClass("touchEnd");
-    $("#body").addClass("result");
+    if (isNaN(result)) {
+        alert("長押しですよ！");
+        window.location.href = "index.html";
+    } else {
+        document.getElementById("sentence").innerHTML = "結果は" + String(result) + "msです";
+        $("#body").removeClass("touchEnd");
+        $("#body").addClass("result");
+    }
+
 })
 
 function leaveNow() {
