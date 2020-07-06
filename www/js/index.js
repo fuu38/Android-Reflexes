@@ -16,31 +16,35 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
-    // Application Constructor
-    initialize: function() {
-        document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-    },
+function touchStart() {
+    /*touchStartクラスをbodyに付与(色変)し、startクラスを剥奪
+     文章を変更
+     judge()
+    */
 
-    // deviceready Event Handler
-    //
-    // Bind any cordova events here. Common events are:
-    // 'pause', 'resume', etc.
-    onDeviceReady: function() {
-        this.receivedEvent('deviceready');
-    },
+    $("body").removeClass("start");
+    $("body").addClass("touching");
+    document.getElementById("sentence").innerHTML = "画面が変わったら\n離して下さい";
+    const delay = Math.random() * 10000;
+    setTimeout(delay);
+    leaveNow();
+}
 
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
 
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
+function leaveNow() {
+    $("body").removeClass("touching");
+    $("body").addClass("touchEnd");
+    const time = new Date();
+    const standard = time.getTime();
+    document.getElementById("sentence").innerHTML = "離せ！";
+    //タッチが終わったとき
+    touchEnd(time, standard);
+}
 
-        console.log('Received Event: ' + id);
-    }
-};
-
-app.initialize();
+function touchEnd(time, standard) {
+    const now = time.getTime();
+    const result = //差分;
+        document.getElementById("sentence").innerHTML = "結果は" + String(result) + "です";
+    $("body").removeClass("touchEnd");
+    $("body").addClass("result");
+}
