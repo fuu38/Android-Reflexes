@@ -45,3 +45,11 @@
     .result {
         background-color: azure;
     }
+    
+    #touchBox {
+        padding: 20vh;
+        border: solid 2px;
+        text-align: center;
+        font-size: xx-large;
+        background-color: silver
+    }

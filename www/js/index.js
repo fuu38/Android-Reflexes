@@ -16,14 +16,18 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-window.addEventListener('touchstart', function() {
+document.getElementById("go_home").addEventListener("click", function() {
+    window.location.href = "index.html"
+})
+document.getElementById("touchBox").addEventListener('touchstart', function() {
     $("#body").removeClass("start");
     $("#body").addClass("touching");
     document.getElementById("sentence").innerHTML = "画面が変わったら\n離して下さい";
     const delay = Math.random() * 10000;
+    console.log(delay);
     setTimeout(leaveNow, delay);
 })
-window.addEventListener('touchend', function() {
+document.getElementById("touchBox").addEventListener('touchend', function() {
     const time = new Date();
     const now = time.getTime();
     const result = now - window.standard;
