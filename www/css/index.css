@@ -38,9 +38,8 @@
         font-size: 10vw;
     }
     
-    #toucharea {
-        border: solid 2px;
-        text-align: center;
+    #body {
+        user-select: none;
     }
     
     .result {

@@ -16,35 +16,26 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-document.getElementById("body").addEventListener("touchstart", touchStart());
-document.getElementById("body").addEventListener("touchend", touchEnd());
-
-function leaveNow() {
-    alert(2);
-    $("#body").removeClass("touching");
-    $("#body").addClass("touchEnd");
-    const time = new Date();
-    window.standard = time.getTime();
-    document.getElementById("sentence").innerHTML = "離せ！";
-}
-
-function touchStart() {
+window.addEventListener('touchstart', function() {
     $("#body").removeClass("start");
     $("#body").addClass("touching");
     document.getElementById("sentence").innerHTML = "画面が変わったら\n離して下さい";
     const delay = Math.random() * 10000;
     setTimeout(leaveNow(), delay);
-}
-
-
-
-
-function touchEnd() {
-    alert(3);
+})
+window.addEventListener('touchend', function() {
     const time = new Date();
     const now = time.getTime();
     const result = now - window.standard;
     document.getElementById("sentence").innerHTML = "結果は" + String(result) + "msです";
     $("#body").removeClass("touchEnd");
     $("#body").addClass("result");
+})
+
+function leaveNow() {
+    $("#body").removeClass("touching");
+    $("#body").addClass("touchEnd");
+    const time = new Date();
+    window.standard = time.getTime();
+    document.getElementById("sentence").innerHTML = "離せ！";
 }
