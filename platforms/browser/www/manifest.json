@@ -1,11 +1,10 @@
 {
   "background_color": "#FFF",
   "display": "standalone",
-  "name": "HelloCordova",
-  "short_name": "HelloCordova",
+  "name": "反応速度測定",
+  "short_name": "反応速度測定",
   "version": "io.cordova.hellocordova",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "author": "Apache Cordova Team",
+  "author": "Fumiya Sakaguchi",
   "icons": [],
   "start_url": "index.html"
 }

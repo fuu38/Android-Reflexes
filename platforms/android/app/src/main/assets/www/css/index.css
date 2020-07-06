@@ -38,11 +38,18 @@
         font-size: 10vw;
     }
     
-    #toucharea {
-        border: solid 2px;
-        text-align: center;
+    #body {
+        user-select: none;
     }
     
     .result {
         background-color: azure;
+    }
+    
+    #touchBox {
+        padding: 20vh;
+        border: solid 2px;
+        text-align: center;
+        font-size: xx-large;
+        background-color: silver
     }

@@ -4,12 +4,11 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <name>HelloCordova</name>
+    <name>反応速度測定</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="chahaaaaan@gmail.com" href="https://chaha1n.github.io">
+        Fumiya Sakaguchi
     </author>
     <content src="index.html" />
     <access origin="*" />

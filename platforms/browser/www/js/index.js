@@ -11,37 +11,35 @@
  *
  * Unless required by applicable law or agreed to in writing,
  * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANoY
  * KIND, either express or implied.  See the License for the
  * specific language governing permissions and limitations
  * under the License.
  */
-window.addEventListener("touchstart", touchStart(event));
-window.addEventListener("touchend", touchEnd(event));
-
-function leaveNow() {
-    alert(2);
-    $("#body").removeClass("touching");
-    $("#body").addClass("touchEnd");
-    const time = new Date();
-    window.standard = time.getTime();
-    document.getElementById("sentence").innerHTML = "離せ！";
-}
-
-function touchStart(event) {
+document.getElementById("go_home").addEventListener("click", function() {
+    window.location.href = "index.html"
+})
+document.getElementById("touchBox").addEventListener('touchstart', function() {
     $("#body").removeClass("start");
     $("#body").addClass("touching");
     document.getElementById("sentence").innerHTML = "画面が変わったら\n離して下さい";
     const delay = Math.random() * 10000;
-    setTimeout(leaveNow(), delay);
-}
-
-function touchEnd(event) {
-    alert(3);
+    console.log(delay);
+    setTimeout(leaveNow, delay);
+})
+document.getElementById("touchBox").addEventListener('touchend', function() {
     const time = new Date();
     const now = time.getTime();
     const result = now - window.standard;
     document.getElementById("sentence").innerHTML = "結果は" + String(result) + "msです";
     $("#body").removeClass("touchEnd");
     $("#body").addClass("result");
+})
+
+function leaveNow() {
+    $("#body").removeClass("touching");
+    $("#body").addClass("touchEnd");
+    const time = new Date();
+    window.standard = time.getTime();
+    document.getElementById("sentence").innerHTML = "離せ！";
 }
