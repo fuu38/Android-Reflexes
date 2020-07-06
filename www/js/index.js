@@ -16,35 +16,35 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-function touchStart() {
-    /*touchStartクラスをbodyに付与(色変)し、startクラスを剥奪
-     文章を変更
-     judge()
-    */
-
-    $("body").removeClass("start");
-    $("body").addClass("touching");
-    document.getElementById("sentence").innerHTML = "画面が変わったら\n離して下さい";
-    const delay = Math.random() * 10000;
-    setTimeout(delay);
-    leaveNow();
-}
-
+window.addEventListener("touchstart", touchStart(event));
+window.addEventListener("touchend", touchEnd(event));
 
 function leaveNow() {
-    $("body").removeClass("touching");
-    $("body").addClass("touchEnd");
+    alert(2);
+    $("#body").removeClass("touching");
+    $("#body").addClass("touchEnd");
     const time = new Date();
-    const standard = time.getTime();
+    window.standard = time.getTime();
     document.getElementById("sentence").innerHTML = "離せ！";
-    //タッチが終わったとき
-    touchEnd(time, standard);
 }
 
-function touchEnd(time, standard) {
+function touchStart(event) {
+    $("#body").removeClass("start");
+    $("#body").addClass("touching");
+    document.getElementById("sentence").innerHTML = "画面が変わったら\n離して下さい";
+    const delay = Math.random() * 10000;
+    setTimeout(leaveNow(), delay);
+}
+
+
+
+
+function touchEnd(event) {
+    alert(3);
+    const time = new Date();
     const now = time.getTime();
-    const result = //差分;
-        document.getElementById("sentence").innerHTML = "結果は" + String(result) + "です";
-    $("body").removeClass("touchEnd");
-    $("body").addClass("result");
+    const result = now - window.standard;
+    document.getElementById("sentence").innerHTML = "結果は" + String(result) + "msです";
+    $("#body").removeClass("touchEnd");
+    $("#body").addClass("result");
 }
